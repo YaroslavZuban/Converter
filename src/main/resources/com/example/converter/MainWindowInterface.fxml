@@ -4,27 +4,35 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Slider?>
 <?import javafx.scene.control.Spinner?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="450.0" stylesheets="@../../../design/MainWindowsStyle.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane fx:id="window" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="450.0" stylesheets="@../../../design/MainWindowsStyle.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.converter.MainWindowController">
    <children>
       <Pane layoutX="125.0" layoutY="5.0" prefHeight="445.0" prefWidth="200.0" styleClass="mainPane" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="30.0">
          <children>
-            <Pane layoutX="9.0" layoutY="25.0" prefHeight="60.0" prefWidth="423.0" styleClass="highlight">
-               <padding>
-                  <Insets left="10.0" right="10.0" />
-               </padding>
-            </Pane>
+            <TextField fx:id="textInput" alignment="CENTER_RIGHT" layoutX="9.0" layoutY="23.0" prefHeight="60.0" prefWidth="423.0" styleClass="highlight" stylesheets="@../../../design/MainWindowsStyle.css" text="0">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </TextField>
             <Pane layoutX="9.0" layoutY="167.0" prefHeight="60.0" prefWidth="423.0" styleClass="highlight">
                <padding>
                   <Insets left="10.0" right="10.0" />
                </padding>
+               <children>
+                  <Label fx:id="labelResult" alignment="CENTER_RIGHT" layoutX="15.0" layoutY="8.0" prefHeight="18.0" prefWidth="393.0" text="0" textFill="WHITE">
+                     <font>
+                        <Font size="30.0" />
+                     </font>
+                  </Label>
+               </children>
             </Pane>
-            <Pane layoutX="21.0" layoutY="311.0" prefHeight="70.0" prefWidth="70.0" styleClass="highlight">
+            <Pane fx:id="button_0" layoutX="21.0" layoutY="311.0" onMouseClicked="#onNumberClicked" prefHeight="70.0" prefWidth="70.0" styleClass="highlight">
                <padding>
                   <Insets left="10.0" right="10.0" />
                </padding>
@@ -36,7 +44,7 @@
                   </Label>
                </children>
             </Pane>
-            <Pane layoutX="106.0" layoutY="311.0" prefHeight="70.0" prefWidth="70.0" styleClass="highlight">
+            <Pane fx:id="button_1" layoutX="106.0" layoutY="311.0" onMouseClicked="#onNumberClicked" prefHeight="70.0" prefWidth="70.0" styleClass="highlight">
                <padding>
                   <Insets left="10.0" right="10.0" />
                </padding>
@@ -48,7 +56,7 @@
                   </Label>
                </children>
             </Pane>
-            <Pane layoutX="186.0" layoutY="311.0" prefHeight="70.0" prefWidth="70.0" styleClass="highlight">
+            <Pane fx:id="button_2" layoutX="186.0" layoutY="311.0" onMouseClicked="#onNumberClicked" prefHeight="70.0" prefWidth="70.0" styleClass="highlight">
                <padding>
                   <Insets left="10.0" right="10.0" />
                </padding>
@@ -60,7 +68,7 @@
                   </Label>
                </children>
             </Pane>
-            <Pane layoutX="268.0" layoutY="311.0" prefHeight="70.0" prefWidth="70.0" styleClass="highlight">
+            <Pane fx:id="button_3" layoutX="268.0" layoutY="311.0" onMouseClicked="#onNumberClicked" prefHeight="70.0" prefWidth="70.0" styleClass="highlight">
                <padding>
                   <Insets left="10.0" right="10.0" />
                </padding>
@@ -72,7 +80,7 @@
                   </Label>
                </children>
             </Pane>
-            <Pane layoutX="347.0" layoutY="311.0" prefHeight="70.0" prefWidth="70.0" styleClass="highlight">
+            <Pane fx:id="button_4" layoutX="347.0" layoutY="311.0" onMouseClicked="#onNumberClicked" prefHeight="70.0" prefWidth="70.0" styleClass="highlight">
                <padding>
                   <Insets left="10.0" right="10.0" />
                </padding>
@@ -84,7 +92,7 @@
                   </Label>
                </children>
             </Pane>
-            <Pane layoutX="22.0" layoutY="393.0" prefHeight="70.0" prefWidth="70.0" styleClass="highlight">
+            <Pane fx:id="button_5" layoutX="22.0" layoutY="393.0" onMouseClicked="#onNumberClicked" prefHeight="70.0" prefWidth="70.0" styleClass="highlight">
                <padding>
                   <Insets left="10.0" right="10.0" />
                </padding>
@@ -96,7 +104,7 @@
                   </Label>
                </children>
             </Pane>
-            <Pane layoutX="107.0" layoutY="393.0" prefHeight="70.0" prefWidth="70.0" styleClass="highlight">
+            <Pane fx:id="button_6" layoutX="107.0" layoutY="393.0" onMouseClicked="#onNumberClicked" prefHeight="70.0" prefWidth="70.0" styleClass="highlight">
                <padding>
                   <Insets left="10.0" right="10.0" />
                </padding>
@@ -108,7 +116,7 @@
                   </Label>
                </children>
             </Pane>
-            <Pane layoutX="187.0" layoutY="393.0" prefHeight="70.0" prefWidth="70.0" styleClass="highlight">
+            <Pane fx:id="button_7" layoutX="187.0" layoutY="393.0" onMouseClicked="#onNumberClicked" prefHeight="70.0" prefWidth="70.0" styleClass="highlight">
                <padding>
                   <Insets left="10.0" right="10.0" />
                </padding>
@@ -120,7 +128,7 @@
                   </Label>
                </children>
             </Pane>
-            <Pane layoutX="269.0" layoutY="393.0" prefHeight="70.0" prefWidth="70.0" styleClass="highlight">
+            <Pane fx:id="button_8" layoutX="269.0" layoutY="393.0" onMouseClicked="#onNumberClicked" prefHeight="70.0" prefWidth="70.0" styleClass="highlight">
                <padding>
                   <Insets left="10.0" right="10.0" />
                </padding>
@@ -132,7 +140,7 @@
                   </Label>
                </children>
             </Pane>
-            <Pane layoutX="348.0" layoutY="393.0" prefHeight="70.0" prefWidth="70.0" styleClass="highlight">
+            <Pane fx:id="button_9" layoutX="348.0" layoutY="393.0" onMouseClicked="#onNumberClicked" prefHeight="70.0" prefWidth="70.0" styleClass="highlight">
                <padding>
                   <Insets left="10.0" right="10.0" />
                </padding>
@@ -144,91 +152,91 @@
                   </Label>
                </children>
             </Pane>
-            <Pane layoutX="24.0" layoutY="473.0" prefHeight="70.0" prefWidth="70.0" styleClass="highlight">
+            <Pane fx:id="button_A" layoutX="24.0" layoutY="473.0" onMouseClicked="#onSymbolClicked" prefHeight="70.0" prefWidth="70.0" styleClass="highlight">
                <padding>
                   <Insets left="10.0" right="10.0" />
                </padding>
                <children>
-                  <Label layoutX="25.0" layoutY="8.0" text="A">
+                  <Label layoutX="25.0" layoutY="8.0" text="A" textFill="WHITE">
                      <font>
                         <Font size="36.0" />
                      </font>
                   </Label>
                </children>
             </Pane>
-            <Pane layoutX="109.0" layoutY="473.0" prefHeight="70.0" prefWidth="70.0" styleClass="highlight">
+            <Pane fx:id="button_B" layoutX="109.0" layoutY="473.0" onMouseClicked="#onSymbolClicked" prefHeight="70.0" prefWidth="70.0" styleClass="highlight">
                <padding>
                   <Insets left="10.0" right="10.0" />
                </padding>
                <children>
-                  <Label layoutX="25.0" layoutY="8.0" text="B">
+                  <Label layoutX="25.0" layoutY="8.0" text="B" textFill="WHITE">
                      <font>
                         <Font size="36.0" />
                      </font>
                   </Label>
                </children>
             </Pane>
-            <Pane layoutX="189.0" layoutY="473.0" prefHeight="70.0" prefWidth="70.0" styleClass="highlight">
+            <Pane fx:id="button_C" layoutX="189.0" layoutY="473.0" onMouseClicked="#onSymbolClicked" prefHeight="70.0" prefWidth="70.0" styleClass="highlight">
                <padding>
                   <Insets left="10.0" right="10.0" />
                </padding>
                <children>
-                  <Label layoutX="25.0" layoutY="8.0" text="C">
+                  <Label layoutX="25.0" layoutY="8.0" text="C" textFill="WHITE">
                      <font>
                         <Font size="36.0" />
                      </font>
                   </Label>
                </children>
             </Pane>
-            <Pane layoutX="271.0" layoutY="473.0" prefHeight="70.0" prefWidth="70.0" styleClass="highlight">
+            <Pane fx:id="button_D" layoutX="271.0" layoutY="473.0" onMouseClicked="#onSymbolClicked" prefHeight="70.0" prefWidth="70.0" styleClass="highlight">
                <padding>
                   <Insets left="10.0" right="10.0" />
                </padding>
                <children>
-                  <Label layoutX="25.0" layoutY="9.0" text="D">
+                  <Label layoutX="25.0" layoutY="9.0" text="D" textFill="WHITE">
                      <font>
                         <Font size="36.0" />
                      </font>
                   </Label>
                </children>
             </Pane>
-            <Pane layoutX="350.0" layoutY="473.0" prefHeight="70.0" prefWidth="70.0" styleClass="highlight">
+            <Pane fx:id="button_E" layoutX="350.0" layoutY="473.0" onMouseClicked="#onSymbolClicked" prefHeight="70.0" prefWidth="70.0" styleClass="highlight">
                <padding>
                   <Insets left="10.0" right="10.0" />
                </padding>
                <children>
-                  <Label layoutX="23.0" layoutY="11.0" text="E">
+                  <Label layoutX="23.0" layoutY="11.0" text="E" textFill="WHITE">
                      <font>
                         <Font size="36.0" />
                      </font>
                   </Label>
                </children>
             </Pane>
-            <Pane layoutX="23.0" layoutY="553.0" prefHeight="70.0" prefWidth="70.0" styleClass="highlight">
+            <Pane fx:id="button_F" layoutX="23.0" layoutY="553.0" onMouseClicked="#onSymbolClicked" prefHeight="70.0" prefWidth="70.0" styleClass="highlight">
                <padding>
                   <Insets left="10.0" right="10.0" />
                </padding>
                <children>
-                  <Label layoutX="25.0" layoutY="8.0" text="F">
+                  <Label layoutX="25.0" layoutY="8.0" text="F" textFill="WHITE">
                      <font>
                         <Font size="36.0" />
                      </font>
                   </Label>
                </children>
             </Pane>
-            <Pane layoutX="108.0" layoutY="553.0" prefHeight="70.0" prefWidth="70.0" styleClass="highlight">
+            <Pane fx:id="button_Point" layoutX="108.0" layoutY="553.0" onMouseClicked="#onSymbolClicked" prefHeight="70.0" prefWidth="70.0" styleClass="highlight">
                <padding>
                   <Insets left="10.0" right="10.0" />
                </padding>
                <children>
-                  <Label layoutX="35.0" layoutY="14.0" prefHeight="53.0" prefWidth="19.0" text=".">
+                  <Label layoutX="35.0" layoutY="14.0" prefHeight="53.0" prefWidth="19.0" text="." textFill="WHITE">
                      <font>
                         <Font size="36.0" />
                      </font>
                   </Label>
                </children>
             </Pane>
-            <Pane layoutX="188.0" layoutY="553.0" prefHeight="70.0" prefWidth="70.0" styleClass="highlight">
+            <Pane fx:id="buttonBackSpace" layoutX="188.0" layoutY="553.0" prefHeight="70.0" prefWidth="70.0" styleClass="highlight">
                <padding>
                   <Insets left="10.0" right="10.0" />
                </padding>
@@ -240,7 +248,7 @@
                   </Label>
                </children>
             </Pane>
-            <Pane layoutX="270.0" layoutY="553.0" prefHeight="70.0" prefWidth="70.0" styleClass="highlight">
+            <Pane fx:id="buttonCleanEntry" layoutX="270.0" layoutY="553.0" prefHeight="70.0" prefWidth="70.0" styleClass="highlight">
                <padding>
                   <Insets left="10.0" right="10.0" />
                </padding>
@@ -252,7 +260,7 @@
                   </Label>
                </children>
             </Pane>
-            <Pane layoutX="349.0" layoutY="553.0" prefHeight="70.0" prefWidth="70.0" styleClass="highlight">
+            <Pane fx:id="buttonExecut" layoutX="349.0" layoutY="553.0" prefHeight="70.0" prefWidth="70.0" styleClass="highlight">
                <padding>
                   <Insets left="10.0" right="10.0" />
                </padding>
@@ -264,34 +272,44 @@
                   </Label>
                </children>
             </Pane>
-            <ImageView fitHeight="18.0" fitWidth="23.0" layoutX="408.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="buttonHistory" fitHeight="18.0" fitWidth="23.0" layoutX="408.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../../icons/history.png" />
                </image>
             </ImageView>
-            <Slider blockIncrement="1.0" layoutX="24.0" layoutY="126.0" majorTickUnit="1.0" max="16.0" min="2.0" minorTickCount="0" prefHeight="24.0" prefWidth="393.0" showTickMarks="true" value="2.0" />
-            <Slider blockIncrement="1.0" layoutX="25.0" layoutY="266.0" majorTickUnit="1.0" max="16.0" min="2.0" minorTickCount="0" prefHeight="24.0" prefWidth="393.0" showTickMarks="true" value="2.0" />
-            <Spinner layoutX="335.0" layoutY="94.0" prefHeight="26.0" prefWidth="70.0" />
-            <Spinner layoutX="330.0" layoutY="234.0" prefHeight="26.0" prefWidth="70.0" />
-            <Label layoutX="28.0" layoutY="94.0" prefHeight="26.0" prefWidth="302.0" text="Основание с. сч. исходного числа 10">
+            <Slider fx:id="sliderInput" blockIncrement="1.0" layoutX="24.0" layoutY="126.0" majorTickUnit="1.0" max="16.0" min="2.0" minorTickCount="0" onMouseClicked="#onNumberSystemSlider" prefHeight="24.0" prefWidth="393.0" showTickMarks="true" value="10.0" />
+            <Slider fx:id="sliderResult" blockIncrement="1.0" layoutX="25.0" layoutY="266.0" majorTickUnit="1.0" max="16.0" min="2.0" minorTickCount="0" onMouseClicked="#onNumberSystemSlider" prefHeight="24.0" prefWidth="393.0" showTickMarks="true" value="16.0" />
+            <Spinner fx:id="spinnerInput" layoutX="335.0" layoutY="94.0" onMouseClicked="#onNumberSystemSpinner" prefHeight="26.0" prefWidth="70.0" />
+            <Spinner fx:id="spinnerResult" layoutX="330.0" layoutY="234.0" onMouseClicked="#onNumberSystemSpinner" prefHeight="26.0" prefWidth="70.0" />
+            <Label layoutX="28.0" layoutY="94.0" prefHeight="26.0" prefWidth="260.0" text="Основание с. сч. исходного числа: ">
                <font>
                   <Font size="16.0" />
                </font>
             </Label>
-            <Label layoutX="28.0" layoutY="234.0" prefHeight="26.0" prefWidth="302.0" text="Основание с. сч. исходного числа 16">
+            <Label layoutX="28.0" layoutY="234.0" prefHeight="26.0" prefWidth="214.0" text="Основание с. сч. результата: ">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label fx:id="labelInputSystem" layoutX="282.0" layoutY="94.0" prefHeight="26.0" prefWidth="48.0" text="10">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label fx:id="labelResultSystem" layoutX="247.0" layoutY="234.0" prefHeight="26.0" prefWidth="48.0" text="16">
                <font>
                   <Font size="16.0" />
                </font>
             </Label>
          </children></Pane>
-      <Pane layoutX="10.0" layoutY="3.0" prefHeight="25.0" prefWidth="434.0">
+      <Pane fx:id="titlePane" layoutX="10.0" layoutY="3.0" prefHeight="25.0" prefWidth="434.0">
          <children>
-            <ImageView fitHeight="18.0" fitWidth="23.0" layoutX="400.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="buttonClose" fitHeight="18.0" fitWidth="23.0" layoutX="400.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../../icons/cancel.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="18.0" fitWidth="18.0" layoutX="370.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="buttonCollapse" fitHeight="18.0" fitWidth="18.0" layoutX="370.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../../icons/collapse.png" />
                </image>

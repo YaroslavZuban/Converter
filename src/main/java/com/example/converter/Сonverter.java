@@ -1,5 +1,5 @@
 package com.example.converter;
 
 public interface Сonverter {
-    public String do
+   public String conv(String line, int system);
 }
