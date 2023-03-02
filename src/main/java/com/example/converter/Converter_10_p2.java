@@ -6,37 +6,41 @@ import java.util.List;
 public class Converter_10_p2 implements Сonverter {
     @Override
     public String conv(String line, int system) {
-        return null;
+        return decimalToOtherBase(Double.valueOf(line),system);
     }
 
-    public  String getInRadix(int number, int radix) {
-        List<Character> digits = getDigitTable();
+    private String decimalToOtherBase(double decimalNumber, int targetBase) {
+        char[] hexDigits = {'A', 'B', 'C', 'D', 'E', 'F'};
 
-        if (radix < 2 || radix >= digits.size() || number < 0) {
-            throw new IllegalArgumentException();
+        StringBuilder convertedNumberBuilder = new StringBuilder();
+        int integerPart = (int) decimalNumber;
+        double decimalPart = decimalNumber - integerPart;
+
+        while (integerPart != 0) {
+            int remainder = integerPart % targetBase;
+            if (remainder < 10) {
+                convertedNumberBuilder.insert(0, remainder);
+            } else {
+                convertedNumberBuilder.insert(0, hexDigits[remainder - 10]);
+            }
+            integerPart /= targetBase;
         }
 
-        StringBuilder valueStr = new StringBuilder();
-
-        while (number > 0) {
-            valueStr.insert(0, digits.get(number % radix));
-            number = number / radix;
+        if (decimalPart != 0) {
+            convertedNumberBuilder.append(".");
+            for (int i = 0; i < 10; i++) {
+                double temp = decimalPart * targetBase;
+                int integerPartTemp = (int) temp;
+                if (integerPartTemp < 10) {
+                    convertedNumberBuilder.append(integerPartTemp);
+                } else {
+                    convertedNumberBuilder.append(hexDigits[integerPartTemp - 10]);
+                }
+                decimalPart = temp - integerPartTemp;
+            }
         }
 
-        return valueStr.toString();
+        return convertedNumberBuilder.toString();
     }
 
-    private  List<Character> getDigitTable() {
-        ArrayList<Character> digits = new ArrayList<>();
-
-        for (char i = '0'; i <= '9'; i++) {
-            digits.add(i);
-        }
-
-        for (char i = 'A'; i <= 'Z'; i++) {
-            digits.add(i);
-        }
-
-        return digits;
-    }
 }

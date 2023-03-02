@@ -260,7 +260,7 @@
                   </Label>
                </children>
             </Pane>
-            <Pane fx:id="buttonExecut" layoutX="349.0" layoutY="553.0" prefHeight="70.0" prefWidth="70.0" styleClass="highlight">
+            <Pane fx:id="buttonExecut" layoutX="349.0" layoutY="553.0" onMouseClicked="#onExpect" prefHeight="70.0" prefWidth="70.0" styleClass="highlight">
                <padding>
                   <Insets left="10.0" right="10.0" />
                </padding>

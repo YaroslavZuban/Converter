@@ -246,7 +246,7 @@ public class MainWindowController {
 
     @FXML
     public void onExpect(MouseEvent event) {
-        Boolean isNonexistent=false;
+        Boolean isNonexistent = false;
 
         String line = textInput.getText().toUpperCase();
         textInput.setText(line);
@@ -256,28 +256,38 @@ public class MainWindowController {
 
         for (int i = 0; i < line.length(); i++) {
             if (line.charAt(i) != '.' && tempLine.indexOf(line.charAt(i)) == -1) {
-                isNonexistent=true;
+                isNonexistent = true;
                 System.out.println("Ошибка");
             }
         }
 
-        int numberSystemInput= (int) sliderInput.getValue();
-        int numberSystemResult=(int)sliderResult.getValue();
+        int numberSystemInput = (int) sliderInput.getValue();
+        int numberSystemResult = (int) sliderResult.getValue();
 
         String result;
 
-        if(isNonexistent){
+        if (isNonexistent) {
             System.out.println("Вывод окна об ошибки");
-        }else{
-            if(numberSystemInput==numberSystemResult){
+        } else {
+            if (numberSystemInput == numberSystemResult) {
                 labelResult.setText(line);
-            }else if(numberSystemResult==10){
-                result=new Converter_p1_10().conv(line,numberSystemInput);
+                System.out.println("ВЫчисления 1");
+                System.out.println("результат: " + line);
+            } else if (numberSystemInput == 10) {
+                result = new Converter_10_p2().conv(line, numberSystemResult);
                 labelResult.setText(result);
-            }else{
-                String temp=new Converter_p1_10().conv(line,numberSystemInput);
-                result=new Converter_10_p2().conv(temp,numberSystemResult);
+            } else if (numberSystemResult == 10) {
+                result = new Converter_p1_10().conv(line, numberSystemInput);
                 labelResult.setText(result);
+                System.out.println("ВЫчисления 2");
+                System.out.println("результат: " + result);
+            } else {
+                String temp = new Converter_p1_10().conv(line, numberSystemInput);
+                System.out.println("Перевод числа в 10 СС: " + temp);
+                result = new Converter_10_p2().conv(temp, numberSystemResult);
+                labelResult.setText(result);
+                System.out.println("ВЫчисления 3");
+                System.out.println("результат: " + result);
             }
         }
     }

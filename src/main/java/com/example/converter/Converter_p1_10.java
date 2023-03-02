@@ -7,7 +7,7 @@ public class Converter_p1_10 implements Сonverter{
     private final String digits = "0123456789ABCDEF";
     @Override
     public String conv(String line, int system) {
-        return null;
+        return String.valueOf(parseNumber(line,system));
     }
 
     /* Преобразует строку num в десятичное число типа double
