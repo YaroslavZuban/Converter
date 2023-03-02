@@ -169,7 +169,6 @@ public class MainWindowController {
         String value = ((Pane) event.getSource()).getId().replace("button_", "");
         String point = ".";
 
-
         if(textInput.getText().equals("0")){
             if(value.equals("Point")){
                 textInput.setText("0"+point);
@@ -180,7 +179,7 @@ public class MainWindowController {
             StringBuilder line = new StringBuilder(textInput.getText());
 
             if(value.equals("Point") && line.indexOf(".")==-1){
-                line.append(value);
+                line.append(point);
                 textInput.setText(line.toString());
             }else if(!value.equals("Point")){
                 line.append(value);
@@ -216,5 +215,37 @@ public class MainWindowController {
         slider.setValue(value);
     }
 
+    @FXML
+    public void onBaskSpace(MouseEvent event){
+        StringBuilder line=new StringBuilder(textInput.getText());
 
+        if(line.length()>0) {
+            line.deleteCharAt(line.length() - 1);
+
+            if(line.length()==0){
+                textInput.setText("0");
+            }else{
+                textInput.setText(line.toString());
+            }
+        }
+    }
+
+    @FXML
+    public void onCleanEntry(MouseEvent event){
+        textInput.setText("0");
+        spinnerValueFactoryInput.setValue(10);
+        spinnerInput.setValueFactory(spinnerValueFactoryInput);
+        sliderInput.setValue(10);
+
+        labelResult.setText("0");
+        spinnerValueFactoryResult.setValue(16);
+        spinnerResult.setValueFactory(spinnerValueFactoryResult);
+        sliderResult.setValue(16);
+
+    }
+
+    @FXML
+    public void onExpect(MouseEvent event){
+
+    }
 }

@@ -241,14 +241,14 @@
                   <Insets left="10.0" right="10.0" />
                </padding>
                <children>
-                  <Label layoutX="15.0" layoutY="8.0" text="BS" textFill="#f70000">
+                  <Label layoutX="15.0" layoutY="8.0" onMouseClicked="#onBaskSpace" text="BS" textFill="#f70000">
                      <font>
                         <Font size="36.0" />
                      </font>
                   </Label>
                </children>
             </Pane>
-            <Pane fx:id="buttonCleanEntry" layoutX="270.0" layoutY="553.0" prefHeight="70.0" prefWidth="70.0" styleClass="highlight">
+            <Pane fx:id="buttonCleanEntry" layoutX="270.0" layoutY="553.0" onMouseClicked="#onCleanEntry" prefHeight="70.0" prefWidth="70.0" styleClass="highlight">
                <padding>
                   <Insets left="10.0" right="10.0" />
                </padding>
