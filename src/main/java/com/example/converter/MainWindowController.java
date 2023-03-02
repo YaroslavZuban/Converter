@@ -169,19 +169,19 @@ public class MainWindowController {
         String value = ((Pane) event.getSource()).getId().replace("button_", "");
         String point = ".";
 
-        if(textInput.getText().equals("0")){
-            if(value.equals("Point")){
-                textInput.setText("0"+point);
-            }else{
+        if (textInput.getText().equals("0")) {
+            if (value.equals("Point")) {
+                textInput.setText("0" + point);
+            } else {
                 textInput.setText(value);
             }
-        }else{
+        } else {
             StringBuilder line = new StringBuilder(textInput.getText());
 
-            if(value.equals("Point") && line.indexOf(".")==-1){
+            if (value.equals("Point") && line.indexOf(".") == -1) {
                 line.append(point);
                 textInput.setText(line.toString());
-            }else if(!value.equals("Point")){
+            } else if (!value.equals("Point")) {
                 line.append(value);
                 textInput.setText(line.toString());
             }
@@ -216,22 +216,22 @@ public class MainWindowController {
     }
 
     @FXML
-    public void onBaskSpace(MouseEvent event){
-        StringBuilder line=new StringBuilder(textInput.getText());
+    public void onBaskSpace(MouseEvent event) {
+        StringBuilder line = new StringBuilder(textInput.getText());
 
-        if(line.length()>0) {
+        if (line.length() > 0) {
             line.deleteCharAt(line.length() - 1);
 
-            if(line.length()==0){
+            if (line.length() == 0) {
                 textInput.setText("0");
-            }else{
+            } else {
                 textInput.setText(line.toString());
             }
         }
     }
 
     @FXML
-    public void onCleanEntry(MouseEvent event){
+    public void onCleanEntry(MouseEvent event) {
         textInput.setText("0");
         spinnerValueFactoryInput.setValue(10);
         spinnerInput.setValueFactory(spinnerValueFactoryInput);
@@ -245,7 +245,40 @@ public class MainWindowController {
     }
 
     @FXML
-    public void onExpect(MouseEvent event){
+    public void onExpect(MouseEvent event) {
+        Boolean isNonexistent=false;
 
+        String line = textInput.getText().toUpperCase();
+        textInput.setText(line);
+
+        String digits = "0123456789ABCDEF";
+        String tempLine = digits.substring(0, (int) sliderInput.getValue());
+
+        for (int i = 0; i < line.length(); i++) {
+            if (line.charAt(i) != '.' && tempLine.indexOf(line.charAt(i)) == -1) {
+                isNonexistent=true;
+                System.out.println("Ошибка");
+            }
+        }
+
+        int numberSystemInput= (int) sliderInput.getValue();
+        int numberSystemResult=(int)sliderResult.getValue();
+
+        String result;
+
+        if(isNonexistent){
+            System.out.println("Вывод окна об ошибки");
+        }else{
+            if(numberSystemInput==numberSystemResult){
+                labelResult.setText(line);
+            }else if(numberSystemResult==10){
+                result=new Converter_p1_10().conv(line,numberSystemInput);
+                labelResult.setText(result);
+            }else{
+                String temp=new Converter_p1_10().conv(line,numberSystemInput);
+                result=new Converter_10_p2().conv(temp,numberSystemResult);
+                labelResult.setText(result);
+            }
+        }
     }
 }

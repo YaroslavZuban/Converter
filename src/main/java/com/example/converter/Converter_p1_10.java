@@ -14,7 +14,7 @@ public class Converter_p1_10 implements Сonverter{
        из указанного основания base
        Может вызвать переполнение (выход за пределы диапазона целых чисел)!
     */
-    public double parseNumber(String num, int base){
+    private double parseNumber(String num, int base){
         num = num.toUpperCase(); // digits are in UPPER_CASE
         double val = 0;
         int i = 0;
