@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+
+<AnchorPane fx:id="window" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="450.0" stylesheets="@../../../design/MainWindowsStyle.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.converter.HistoryController">
+   <children>
+      <Pane layoutX="125.0" layoutY="5.0" prefHeight="445.0" prefWidth="200.0" styleClass="mainPane" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="30.0">
+         <children>
+            <ImageView fx:id="buttonConv" fitHeight="25.0" fitWidth="25.0" layoutX="14.0" layoutY="14.0">
+               <image>
+                  <Image url="@../../../icons/calculator.png" />
+               </image>
+            </ImageView>
+            <ScrollPane layoutX="11.0" layoutY="56.0" prefHeight="587.0" prefWidth="420.0">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="1500.0" prefWidth="405.0">
+                     <children>
+                        <Pane layoutX="-8.0" layoutY="-6.0" prefHeight="1500.0" prefWidth="434.0" styleClass="mainPane">
+                           <children>
+                              <GridPane fx:id="grid" layoutX="14.0" layoutY="14.0" prefHeight="575.0" prefWidth="407.0">
+                                <rowConstraints>
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                </rowConstraints>
+                              </GridPane>
+                           </children>
+                        </Pane>
+                     </children>
+                  </AnchorPane>
+              </content>
+            </ScrollPane>
+         </children>
+      </Pane>
+      <Pane fx:id="titlePane" layoutX="10.0" layoutY="3.0" prefHeight="25.0" prefWidth="434.0">
+         <children>
+            <ImageView fx:id="buttonClose" fitHeight="18.0" fitWidth="23.0" layoutX="400.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../icons/cancel.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="buttonCollapse" fitHeight="18.0" fitWidth="18.0" layoutX="370.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../icons/collapse.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="26.0" fitWidth="23.0" layoutX="6.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../icons/calculator.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="31.0" layoutY="4.0" prefHeight="18.0" prefWidth="93.0" text="Конвертор" textFill="WHITE" />
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

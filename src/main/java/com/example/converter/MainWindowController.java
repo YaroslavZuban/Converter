@@ -1,16 +1,21 @@
 package com.example.converter;
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.Scanner;
@@ -76,7 +81,6 @@ public class MainWindowController {
 
     @FXML
     private Pane button_C;
-
     @FXML
     private Pane button_D;
 
@@ -103,7 +107,8 @@ public class MainWindowController {
 
     @FXML
     private Slider sliderResult;
-
+    @FXML
+    private ImageView buttonInfo;
     @FXML
     private Spinner<Integer> spinnerInput;
 
@@ -136,6 +141,33 @@ public class MainWindowController {
 
         buttonCollapse.setOnMouseClicked(mouseEvent -> stage.setIconified(true));
         buttonClose.setOnMouseClicked(mouseEvent -> stage.close());
+
+        buttonInfo.setOnMouseClicked(mouseEvent-> Error.error(Reference.info,window));
+
+
+        buttonHistory.setOnMouseClicked(mouseEvent->{
+            Stage ss = (Stage) window.getScene().getWindow();//береться параметры стратого она и закрывается
+            ss.close();//закрытия окна
+
+            FXMLLoader fxmlLoader = new FXMLLoader(MainWindow.class.getResource("HistoryInterface.fxml"));//считывание дизайн самого интерфейса
+
+            Stage s = new Stage();
+            Scene scene = null;//запуск дизайн
+            try {
+                scene = new Scene(fxmlLoader.load());
+                //   stage.getIcons().add(new Image(HelloApplication.class.getResourceAsStream("bit.png")));//установление иконки
+                scene.setFill(Color.TRANSPARENT);
+                s.setTitle("Converter");
+                s.initStyle(StageStyle.TRANSPARENT);
+                s.setResizable(false);
+                s.setScene(scene);
+                s.setScene(scene);//установка Scene для Stage
+                ((HistoryController)fxmlLoader.getController()).init(s);
+                s.show();//Попытки показать это окно, установив для видимости значение true
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        });
 
         sliderInput.setSnapToPixel(false);
         sliderResult.setSnapToPixel(true);
@@ -257,7 +289,6 @@ public class MainWindowController {
         for (int i = 0; i < line.length(); i++) {
             if (line.charAt(i) != '.' && tempLine.indexOf(line.charAt(i)) == -1) {
                 isNonexistent = true;
-                System.out.println("Ошибка");
             }
         }
 
@@ -267,28 +298,25 @@ public class MainWindowController {
         String result;
 
         if (isNonexistent) {
-            System.out.println("Вывод окна об ошибки");
+            Error.error("Лишний символ, проверти поле ввода.",window);
         } else {
             if (numberSystemInput == numberSystemResult) {
                 labelResult.setText(line);
-                System.out.println("ВЫчисления 1");
-                System.out.println("результат: " + line);
             } else if (numberSystemInput == 10) {
                 result = new Converter_10_p2().conv(line, numberSystemResult);
                 labelResult.setText(result);
             } else if (numberSystemResult == 10) {
                 result = new Converter_p1_10().conv(line, numberSystemInput);
                 labelResult.setText(result);
-                System.out.println("ВЫчисления 2");
-                System.out.println("результат: " + result);
             } else {
                 String temp = new Converter_p1_10().conv(line, numberSystemInput);
-                System.out.println("Перевод числа в 10 СС: " + temp);
                 result = new Converter_10_p2().conv(temp, numberSystemResult);
                 labelResult.setText(result);
-                System.out.println("ВЫчисления 3");
-                System.out.println("результат: " + result);
             }
+
+            Computing computing=new Computing(textInput.getText(),numberSystemInput,
+                    labelResult.getText(),numberSystemResult);
+            Story.input.add(computing);
         }
     }
 }

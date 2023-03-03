@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="63.0" prefWidth="416.0" stylesheets="@../../../design/MainWindowsStyle.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.converter.DoingController">
+   <children>
+      <Label layoutX="126.0" layoutY="5.0" prefHeight="18.0" prefWidth="19.0" text="Из " textFill="WHITE" />
+      <Label layoutX="172.0" layoutY="5.0" prefHeight="18.0" prefWidth="52.0" text="-ичной в" textFill="WHITE" />
+      <Label layoutX="251.0" layoutY="5.0" prefHeight="18.0" prefWidth="52.0" text="-ичной" textFill="WHITE" />
+      <Text fx:id="numberSystemInput" fill="WHITE" layoutX="145.0" layoutY="19.0" nodeOrientation="RIGHT_TO_LEFT" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="27.0" />
+      <Text fx:id="numberSystemResult" fill="WHITE" layoutX="224.0" layoutY="19.0" nodeOrientation="RIGHT_TO_LEFT" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="27.0" />
+      <Text fx:id="numberInput" fill="WHITE" layoutX="14.0" layoutY="45.0" nodeOrientation="RIGHT_TO_LEFT" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="177.13671875">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Text>
+      <Text fx:id="numberResult" fill="WHITE" layoutX="233.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="186.13671875">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Text>
+      <Label layoutX="203.0" layoutY="19.0" text="-&gt;" textFill="WHITE">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

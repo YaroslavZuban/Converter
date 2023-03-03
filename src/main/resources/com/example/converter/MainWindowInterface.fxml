@@ -301,7 +301,13 @@
                   <Font size="16.0" />
                </font>
             </Label>
-         </children></Pane>
+            <ImageView fx:id="buttonInfo" fitHeight="18.0" fitWidth="23.0" layoutX="12.0" layoutY="5.0">
+               <image>
+                  <Image url="@../../../icons/info.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
       <Pane fx:id="titlePane" layoutX="10.0" layoutY="3.0" prefHeight="25.0" prefWidth="434.0">
          <children>
             <ImageView fx:id="buttonClose" fitHeight="18.0" fitWidth="23.0" layoutX="400.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
