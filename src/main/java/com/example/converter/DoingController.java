@@ -3,6 +3,9 @@ package com.example.converter;
 import javafx.fxml.FXML;
 import javafx.scene.text.Text;
 
+/**
+ * Контроллер в котором будет отображаться информация о выполненном решении
+ */
 public class DoingController {
     @FXML
     private Text numberInput;

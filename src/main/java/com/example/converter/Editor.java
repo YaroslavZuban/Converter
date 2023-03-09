@@ -2,6 +2,9 @@ package com.example.converter;
 
 import javafx.scene.input.KeyEvent;
 
+/**
+ * Класс редактор, но он нигде не выполняется
+ */
 public class Editor {
     public static String processingClick(String line, KeyEvent keyEvent){
         StringBuilder tempLine=new StringBuilder(line);

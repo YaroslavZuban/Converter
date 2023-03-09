@@ -18,6 +18,9 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+/**
+ * Данный класс отвечает за управление интерфейсом история
+ */
 public class HistoryController implements Initializable {
     @FXML
     private ImageView buttonClose;
@@ -36,6 +39,8 @@ public class HistoryController implements Initializable {
     private AnchorPane window;
     private double x, y;
     public void init(Stage stage){
+
+        //с помощью этих методов выполняется перетаскивание окна на рабочем столе
         titlePane.setOnMousePressed(mouseEvent -> {
             x = mouseEvent.getSceneX();
             y = mouseEvent.getSceneY();
@@ -46,8 +51,8 @@ public class HistoryController implements Initializable {
             stage.setY(mouseEvent.getScreenY() - y);
         });
 
-        buttonCollapse.setOnMouseClicked(mouseEvent -> stage.setIconified(true));
-        buttonClose.setOnMouseClicked(mouseEvent -> stage.close());
+        buttonCollapse.setOnMouseClicked(mouseEvent -> stage.setIconified(true));//сворачивание окна
+        buttonClose.setOnMouseClicked(mouseEvent -> stage.close());//закрытие приложения
 
         buttonConv.setOnMouseClicked(mouseEvent->{
             Stage ss = (Stage) window.getScene().getWindow();//береться параметры стратого она и закрывается
@@ -84,22 +89,22 @@ public class HistoryController implements Initializable {
 
                 FXMLLoader fxmlLoader = new FXMLLoader();
 
-                fxmlLoader.setLocation(getClass().getResource("Doing.fxml"));
-                AnchorPane anchorPane = fxmlLoader.load();
+                fxmlLoader.setLocation(getClass().getResource("Doing.fxml"));//подгружаем окно doing.fxml
+                AnchorPane anchorPane = fxmlLoader.load();//позволяет вам определять точки привязки fxml формат
 
-                DoingController doingController = fxmlLoader.getController();
-                Computing computing = Story.input.get(i);
+                DoingController doingController = fxmlLoader.getController();//загружаем doing контроллер
+                Computing computing = Story.input.get(i);//устанавливаем значение итерации
 
                 doingController.setData(computing.input, String.valueOf(computing.inputSystem),
-                        computing.result, String.valueOf(computing.resultSystem));
+                        computing.result, String.valueOf(computing.resultSystem));//вносим данные в fxml формат
 
 
-                if (column == 1) {
+                if (column == 1) {//данное условие позволяет в таблице создавать только одну колонку
                     column = 0;
                     row++;
                 }
 
-                grid.add(anchorPane, column++, row);
+                grid.add(anchorPane, column++, row);//вставляем в таблицу значения
 
                 grid.setMinWidth(Region.USE_COMPUTED_SIZE);
                 grid.setPrefWidth(Region.USE_COMPUTED_SIZE);
@@ -109,7 +114,7 @@ public class HistoryController implements Initializable {
                 grid.setPrefHeight(Region.USE_COMPUTED_SIZE);
                 grid.setMaxHeight(Region.USE_COMPUTED_SIZE);
 
-                GridPane.setMargin(anchorPane, new Insets(5));
+                GridPane.setMargin(anchorPane, new Insets(5));//устанавливает отступ между ячейками
             }
         } catch (IOException e) {
             throw new RuntimeException(e);

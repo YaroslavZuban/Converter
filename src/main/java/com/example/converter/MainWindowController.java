@@ -128,6 +128,11 @@ public class MainWindowController {
 
     private double x, y;
 
+    /**
+     * в данном методе реализуется перетаскиваения приложения, закрытие, сворачивание
+     * так же просмотр истории и информации
+     * @param stage
+     */
     public void init(Stage stage) {
         titlePane.setOnMousePressed(mouseEvent -> {
             x = mouseEvent.getSceneX();
@@ -142,7 +147,7 @@ public class MainWindowController {
         buttonCollapse.setOnMouseClicked(mouseEvent -> stage.setIconified(true));
         buttonClose.setOnMouseClicked(mouseEvent -> stage.close());
 
-        buttonInfo.setOnMouseClicked(mouseEvent-> Error.error(Reference.info,window));
+        buttonInfo.setOnMouseClicked(mouseEvent-> Info.information(Reference.info,window));
 
 
         buttonHistory.setOnMouseClicked(mouseEvent->{
@@ -276,6 +281,13 @@ public class MainWindowController {
 
     }
 
+    /**
+     * в данном методе делается следующее
+     * проверяется что число находиться в СС (2-16)
+     * в дальнейшем, происходят преобразования если число в 10 СС то оно перевод осуществляется сразу в N
+     * если число в N системе счисления то оно переводиться в 10, а из 10 в M
+     * @param event
+     */
     @FXML
     public void onExpect(MouseEvent event) {
         Boolean isNonexistent = false;
@@ -286,6 +298,7 @@ public class MainWindowController {
         String digits = "0123456789ABCDEF";
         String tempLine = digits.substring(0, (int) sliderInput.getValue());
 
+        //данный метод позволяет найти обнаружить в строке лишние элементы
         for (int i = 0; i < line.length(); i++) {
             if (line.charAt(i) != '.' && tempLine.indexOf(line.charAt(i)) == -1) {
                 isNonexistent = true;
@@ -298,17 +311,17 @@ public class MainWindowController {
         String result;
 
         if (isNonexistent) {
-            Error.error("Лишний символ, проверти поле ввода.",window);
+            Info.information("Лишний символ, проверти поле ввода.",window);
         } else {
-            if (numberSystemInput == numberSystemResult) {
+            if (numberSystemInput == numberSystemResult) {//если СС перевода равны то просто вставляем строку
                 labelResult.setText(line);
-            } else if (numberSystemInput == 10) {
+            } else if (numberSystemInput == 10) {//если СС находится в 10 -> N
                 result = new Converter_10_p2().conv(line, numberSystemResult);
                 labelResult.setText(result);
-            } else if (numberSystemResult == 10) {
+            } else if (numberSystemResult == 10) {//если СС находится N -> 10
                 result = new Converter_p1_10().conv(line, numberSystemInput);
                 labelResult.setText(result);
-            } else {
+            } else {//если число находится в N СС счисления, а результат в M СС, то переводим число в 10, а потом в M
                 String temp = new Converter_p1_10().conv(line, numberSystemInput);
                 result = new Converter_10_p2().conv(temp, numberSystemResult);
                 labelResult.setText(result);
@@ -316,6 +329,7 @@ public class MainWindowController {
 
             Computing computing=new Computing(textInput.getText(),numberSystemInput,
                     labelResult.getText(),numberSystemResult);
+
             Story.input.add(computing);
         }
     }

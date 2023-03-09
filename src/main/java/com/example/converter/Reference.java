@@ -1,5 +1,8 @@
 package com.example.converter;
 
+/**
+ * класс который хранит в себе главную информацию о создателям приложения
+ */
 public class Reference {
     public static final  String info="Данная программа предназначена\n" +
             "для перевода вещественных чисел из\n" +
